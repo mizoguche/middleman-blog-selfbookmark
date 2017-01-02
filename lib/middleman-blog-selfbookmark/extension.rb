@@ -12,6 +12,7 @@ module Middleman
       option :request_token_secret, nil, 'Hatena Bookmark request token secret'
       option :hostname, nil, 'Your site hostname'
       option :comment, '', 'Bookmark comment'
+      option :add_tags, true, 'Add tags of article to comment'
       option :new_article_threshold, 1.hour, 'Threshold if latest article'
 
       attr_reader :options

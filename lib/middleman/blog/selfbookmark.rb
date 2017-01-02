@@ -14,7 +14,8 @@ module Middleman
           latest_article = blog_extension.data.articles.select{ |a| a.published? }.first
           return unless should_bookmark(latest_article)
 
-          client.create(url: "#{settings.hostname}#{latest_article.url}", comment: settings.comment)
+          tag = settings.add_tags ? latest_article.data.tags.map{|t| "[#{t}]"}.join : ''
+          client.create(url: "#{settings.hostname}#{latest_article.url}", comment: "#{tag}#{settings.comment}")
         end
 
         def app=(app)
